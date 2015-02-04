@@ -1,0 +1,23 @@
+{
+    "name": "dario_swain/ds-recaptcha-bundle",
+    "type": "symfony-bundle",
+    "description": "Google ReCAPTCHA (ver. 2) Symfony Bundle.",
+    "keywords": ["recaptcha", "bundle", "symfony", "form", "validator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya Pokamestov",
+            "homepage": "http://github.com/DarioSwain"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "dario_swain/ds-recaptcha": "dev-v1.0.0-dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": { "DS\\ReCaptchaBundle\\": "" }
+    }
+}
