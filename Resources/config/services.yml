@@ -1,13 +1,13 @@
 services:
     ds_re_captcha.validator:
-        class: DS\Component\ReCaptcha\Validator\ReCaptchaValidator
+        class: DS\Component\ReCaptchaValidator\Validator\ReCaptchaValidator
         scope: request
         arguments: [@request, "%re_captcha.private_key%"]
         tags:
             - { name: validator.constraint_validator, alias: ds_re_captcha.validator }
 
     ds_re_captcha.form.type:
-        class: DS\Component\ReCaptcha\Form\ReCaptchaType
+        class: DS\Component\ReCaptchaValidator\Form\ReCaptchaType
         arguments: ["%re_captcha.public_key%", %re_captcha.locale%]
         tags:
             - { name: form.type, alias: ds_re_captcha }
