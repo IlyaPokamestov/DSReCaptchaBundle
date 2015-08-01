@@ -43,7 +43,7 @@ class ReCaptchaTypeTest extends \PHPUnit_Framework_TestCase {
     public function testName()
     {
         $captchaType = new ReCaptchaType('test');
-        $this->assertEquals($captchaType->getName(), 'ds_re_captcha');
+        $this->assertEquals($captchaType->getName(), 're_captcha');
     }
 
     public function testViewConfiguration()

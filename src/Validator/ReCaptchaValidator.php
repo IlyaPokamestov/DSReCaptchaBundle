@@ -26,21 +26,17 @@ class ReCaptchaValidator extends ConstraintValidator
 {
     /** @var Request */
     protected $request;
-    /** @var  string */
-    protected $privateKey;
-    /** @var  DriverInterface */
-    protected $driver;
+    /** @var  ReCaptcha */
+    protected $reCaptcha;
 
     /**
      * @param Request $request
-     * @param string $privateKey
-     * @param DriverInterface $driver
+     * @param ReCaptcha $reCaptcha
      */
-    public function __construct(Request $request, $privateKey, DriverInterface $driver = null)
+    public function __construct(Request $request, ReCaptcha $reCaptcha)
     {
         $this->request = $request;
-        $this->privateKey = $privateKey;
-        $this->driver = $driver;
+        $this->reCaptcha = $reCaptcha;
     }
 
     /**
@@ -53,14 +49,13 @@ class ReCaptchaValidator extends ConstraintValidator
         }
 
         if ($this->request->get('g-recaptcha-response', false)) {
-            $reCaptcha = new ReCaptcha(
-                $this->privateKey,
-                $this->request->getClientIp(),
-                $this->request->get('g-recaptcha-response', false)
-            );
-            $response = $reCaptcha->buildRequest($this->driver)->send();
+            $this->reCaptcha->setClientIp($this->request->getClientIp())
+                ->setGReCaptchaResponse($this->request->get('g-recaptcha-response', false));
+            $response = $this->reCaptcha->buildRequest()->send();
             if (!$response->isSuccess()) {
                 $this->context->addViolation($constraint->message);
+            } else {
+                $this->request->request->remove('g-recaptcha-response');
             }
         } else {
             $this->context->addViolation($constraint->message);

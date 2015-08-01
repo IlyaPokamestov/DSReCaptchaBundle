@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DSReCaptcha Bundle.
+ * This file is part of the ReCaptcha Bundle.
  *
  * (c) Ilya Pokamestov <dario_swain@yahoo.com>
  *
@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
 
 /**
- * DsReCaptchaBundle extension.
+ * ReCaptchaBundle extension.
  *
  * @author Ilya Pokamestov <dario_swain@yahoo.com>
  */

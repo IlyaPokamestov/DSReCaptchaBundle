@@ -12,7 +12,7 @@ Add next lines to your composer.json file:
 ``` json
 {
     "require": {
-        "dario_swain/ds-recaptcha-bundle":                 "dev-master"
+        "dario_swain/re-captcha-bundle":                 "dev-master"
     }
 }
 ```
@@ -67,7 +67,7 @@ class ContactType extends AbstractType
     {
         $builder->add('message', 'textarea')
             /** In type add your form alias **/
-			->add('captcha', 'ds_re_captcha', array('mapped' => false))
+			->add('captcha', 're_captcha', array('mapped' => false))
 			->add('send', 'submit');
     }
 }
