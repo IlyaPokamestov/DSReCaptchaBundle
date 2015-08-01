@@ -31,7 +31,7 @@ class ReCaptchaExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $processor = new Processor();
-        $config = $processor->processConfiguration(new Configuration(),$configs);
+        $config = $processor->processConfiguration(new Configuration(), $configs);
 
         $this->setParameters($container, $config);
 
@@ -46,8 +46,8 @@ class ReCaptchaExtension extends Extension
      */
     protected function setParameters(ContainerBuilder $container, array $config)
     {
-        foreach($config as $key => $value) {
-            if(null === $value)
+        foreach ($config as $key => $value) {
+            if (null === $value)
             {
                 throw new InvalidConfigurationException(sprintf('Parameter "%s" will be configured in "%s" section', $key, $this->getAlias()));
             }
