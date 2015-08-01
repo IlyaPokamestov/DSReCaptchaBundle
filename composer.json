@@ -23,9 +23,6 @@
         "symfony/form": "~2.3",
         "symfony/validator": "~2.3"
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "autoload": {
         "psr-4": {
             "DS\\ReCaptchaBundle\\": "src"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad7670f557adc560039473f393ff5d20",
+    "hash": "44b77087f90db6004a54934065f170c2",
     "packages": [
         {
             "name": "dario_swain/re-captcha-library",
