@@ -1,6 +1,5 @@
 {% block re_captcha_widget %}
     {% spaceless %}
-        <div class="g-recaptcha" data-sitekey="{{ public_key }}"></div>
-        <script src="{{ js_api_url }}?hl={{ lang }}" async defer></script>
+        {{ re_captcha_field() }}
     {% endspaceless %}
 {% endblock re_captcha_widget %}
