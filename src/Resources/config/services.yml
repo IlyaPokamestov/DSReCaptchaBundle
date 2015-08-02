@@ -1,0 +1,23 @@
+services:
+    re_captcha.service:
+        class: %re_captcha.service_class%
+        arguments: ["%re_captcha.private_key%"]
+
+    re_captcha.validator:
+        class: %re_captcha.validator_class%
+        scope: request
+        arguments: [@request, @re_captcha.service]
+        tags:
+            - { name: validator.constraint_validator, alias: re_captcha.validator }
+
+    re_captcha.form.type:
+        class: %re_captcha.form_class%
+        tags:
+            - { name: form.type, alias: re_captcha }
+
+    re_captcha.twig_extension:
+        class: %re_captcha.twig_class%
+        public: false
+        arguments: [%re_captcha.js_api_url%, %re_captcha.public_key%, %re_captcha.locale%]
+        tags:
+            - { name: twig.extension }

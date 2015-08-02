@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DSReCaptcha Bundle.
+ * This file is part of the ReCaptcha Bundle.
  *
  * (c) Ilya Pokamestov <dario_swain@yahoo.com>
  *
@@ -16,7 +16,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\NodeInterface;
 
 /**
- * DsReCaptchaBundle configuration structure.
+ * ReCaptchaBundle configuration structure.
  *
  * @author Ilya Pokamestov <dario_swain@yahoo.com>
  */
@@ -34,9 +34,14 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('js_api_url')->defaultValue('https://www.google.com/recaptcha/api.js')->end()
                 ->scalarNode('public_key')->isRequired()->end()
                 ->scalarNode('private_key')->isRequired()->end()
                 ->scalarNode('locale')->defaultValue('en')->end()
+                ->scalarNode('validator_class')->defaultValue('DS\ReCaptchaBundle\Validator\ReCaptchaValidator')->end()
+                ->scalarNode('form_class')->defaultValue('DS\ReCaptchaBundle\Form\ReCaptchaType')->end()
+                ->scalarNode('service_class')->defaultValue('DS\Library\ReCaptcha\ReCaptcha')->end()
+                ->scalarNode('twig_class')->defaultValue('DS\ReCaptchaBundle\Twig\ReCaptchaExtension')->end()
             ->end()
         ;
 

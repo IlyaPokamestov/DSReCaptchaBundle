@@ -1,23 +1,37 @@
 {
-    "name": "dario_swain/ds-recaptcha-bundle",
+    "name": "dario_swain/re-captcha-bundle",
     "type": "symfony-bundle",
     "description": "Google ReCAPTCHA (ver. 2) Symfony Bundle.",
-    "keywords": ["recaptcha", "bundle", "symfony", "form", "validator"],
+    "keywords": ["recaptcha", "captcha", "google", "api", "bundle", "symfony", "form", "validator"],
     "license": "MIT",
     "authors": [
         {
             "name": "Ilya Pokamestov",
-            "homepage": "http://github.com/DarioSwain"
+            "homepage": "http://github.com/DarioSwain",
+            "email": "dario_swain@yahoo.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "dario_swain/re-captcha-validator": "1.*"
+        "dario_swain/re-captcha-library": "1.0.*"
     },
-    "config": {
-        "bin-dir": "bin"
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "squizlabs/php_codesniffer": "~2.0",
+        "symfony/framework-bundle": "~2.3",
+        "symfony/form": "~2.3",
+        "symfony/validator": "~2.3",
+        "symfony/twig-bundle": "~2.3"
     },
     "autoload": {
-        "psr-4": { "DS\\ReCaptchaBundle\\": "" }
+        "psr-4": {
+            "DS\\ReCaptchaBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DS\\ReCaptchaBundle\\Tests\\": "tests"
+        }
     }
 }
