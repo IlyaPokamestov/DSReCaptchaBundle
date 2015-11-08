@@ -2,7 +2,10 @@ services:
     ds_re_captcha.validator:
         class: DS\Component\ReCaptchaValidator\Validator\ReCaptchaValidator
         scope: request
-        arguments: [@request, "%re_captcha.private_key%"]
+        arguments:
+            request: @request
+            privateKey: "%re_captcha.private_key%"
+            enabled: "%re_captcha.enabled%"
         tags:
             - { name: validator.constraint_validator, alias: ds_re_captcha.validator }
 
