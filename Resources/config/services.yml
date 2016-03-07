@@ -1,18 +1,17 @@
 services:
     ds_re_captcha.validator:
         class: DS\Component\ReCaptchaValidator\Validator\ReCaptchaValidator
-        scope: request
         arguments:
-            request: @request
-            privateKey: "%re_captcha.private_key%"
-            driver: null
-            enabled: "%re_captcha.enabled%"
+            - # Either @request or @request_stack
+            - "%re_captcha.private_key%"
+            - null
+            - "%re_captcha.enabled%"
         tags:
             - { name: validator.constraint_validator, alias: ds_re_captcha.validator }
 
     ds_re_captcha.form.type:
         class: DS\Component\ReCaptchaValidator\Form\ReCaptchaType
-        arguments: ["%re_captcha.public_key%", %re_captcha.locale%]
+        arguments: ["%re_captcha.public_key%", "%re_captcha.locale%"]
         tags:
             - { name: form.type, alias: ds_re_captcha }
 
