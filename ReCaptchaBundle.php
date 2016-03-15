@@ -11,6 +11,8 @@
 
 namespace DS\ReCaptchaBundle;
 
+use DS\ReCaptchaBundle\DependencyInjection\Compiler\ReCaptchaValidatorPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -20,4 +22,10 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class ReCaptchaBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new ReCaptchaValidatorPass());
+    }
 }
